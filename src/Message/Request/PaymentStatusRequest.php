@@ -58,7 +58,7 @@ class PaymentStatusRequest extends AbstractRequest
             ])
         );
 
-        return $this->createResponse((array)$response);
+        return $this->createResponse($response->getBody()->getContents());
     }
 
     /**
@@ -66,7 +66,7 @@ class PaymentStatusRequest extends AbstractRequest
      *
      * @return \Omnipay\Common\Message\ResponseInterface
      */
-    protected function createResponse(array $data): ResponseInterface
+    protected function createResponse(string $data): ResponseInterface
     {
         return $this->response = new PaymentStatusResponse($this, $data);
     }

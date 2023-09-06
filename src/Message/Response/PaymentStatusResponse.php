@@ -6,6 +6,9 @@ namespace Omnipay\LiqPay\Message\Response;
 
 use Omnipay\Common\Message\AbstractResponse as OmnipayAbstractResponse;
 use Omnipay\Common\Message\RedirectResponseInterface;
+use Omnipay\Common\Message\RequestInterface;
+
+use function json_decode;
 
 /**
  * LiqPay Response.
@@ -17,6 +20,16 @@ use Omnipay\Common\Message\RedirectResponseInterface;
 class PaymentStatusResponse extends OmnipayAbstractResponse implements RedirectResponseInterface
 {
     public const SUCCESS = 'success';
+
+    /**
+     * @inheritDoc
+     */
+    public function __construct(RequestInterface $request, $data)
+    {
+        parent::__construct($request, $data);
+
+        $this->data = json_decode($data, true);
+    }
 
     /**
      * @inheritDoc
