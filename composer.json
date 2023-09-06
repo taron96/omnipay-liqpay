@@ -1,0 +1,40 @@
+{
+    "name": "taron96/omnipay-liqpay",
+    "type": "library",
+    "description": "LiqPay gateway for Omnipay payment processing library",
+    "keywords": [
+        "gateway",
+        "merchant",
+        "omnipay",
+        "pay",
+        "payment",
+        "liqpay",
+        "purchase"
+    ],
+    "homepage": "https://github.com/taron96/omnipay-liqpay",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Taron Antonyan",
+            "email": "antonyantaron1996@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Omnipay\\LiqPay\\": "src/"
+        }
+    },
+    "require": {
+        "omnipay/common": "^3",
+        "ext-json": "*",
+        "php": "^8",
+        "symfony/http-client": "^6.3",
+        "php-http/httplug": "^2.4",
+        "nyholm/psr7": "^1.8"
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
+}
